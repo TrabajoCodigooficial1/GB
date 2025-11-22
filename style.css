@@ -1,0 +1,304 @@
+/* =========================================================
+   VARIABLES
+========================================================= */
+:root {
+    --color-fondo: #f4f3ef;
+    --color-texto: #2d2c2a;
+    --color-principal: #8a6f44;
+    --color-principal-hover: #a8926f;
+    --color-borde: #c4b89c;
+    --color-card: #fffefb;
+    --color-card-borde: #d7d1c5;
+
+    --font-base: "Montserrat", sans-serif;
+    --font-titulos: "Playfair Display", serif;
+}
+
+/* =========================================================
+   RESET Y BASE
+========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-base);
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+header {
+    background: #ffffff;
+    padding: 18px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--color-borde);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 60px;
+    margin-right: 18px;
+}
+
+.nombre {
+    font-family: var(--font-titulos);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #3b3a39;
+}
+
+nav a {
+    margin-left: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    color: #4a4a4a;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--color-principal);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+.hero {
+    background: url("https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 170px 40px;
+    position: relative;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-family: var(--font-titulos);
+    font-size: 3.4rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    max-width: 750px;
+    margin: auto;
+    font-size: 1.2rem;
+}
+
+/* =========================================================
+   SECCIONES GENERALES
+========================================================= */
+section {
+    padding: 90px 60px;
+}
+
+h2 {
+    font-family: var(--font-titulos);
+    font-size: 2.4rem;
+    color: #3a3937;
+    margin-bottom: 25px;
+}
+
+/* =========================================================
+   TARJETAS DE PROYECTO EXPANDIBLES
+========================================================= */
+.proyecto-card {
+    background: var(--color-card);
+    border: 1px solid var(--color-card-borde);
+    padding: 25px 30px;
+    margin: 35px 0;
+    border-radius: 18px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.07);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.proyecto-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+}
+
+/* Header del proyecto */
+.proyecto-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle-btn {
+    background: var(--color-principal);
+    border: none;
+    color: white;
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.toggle-btn:hover {
+    background: var(--color-principal-hover);
+    transform: scale(1.03);
+}
+
+/* Contenido oculto */
+.proyecto-info {
+    margin-top: 20px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.45s ease, opacity 0.45s ease;
+}
+
+.proyecto-info.open {
+    max-height: 600px; /* un poco más alto para textos grandes */
+    opacity: 1;
+}
+
+.proyecto-info ul {
+    margin: 15px 0 10px 25px;
+    line-height: 1.75;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: var(--color-principal);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.25s;
+}
+
+.btn:hover {
+    background: var(--color-principal-hover);
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   CONTACTO
+========================================================= */
+.contacto .email {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--color-principal);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.contacto .email:hover {
+    text-decoration: underline;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+footer {
+    background: #2b2b2a;
+    color: #f5f5f5;
+    text-align: center;
+    padding: 35px;
+    font-size: 0.9rem;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 850px) {
+    header {
+        padding: 18px 25px;
+    }
+
+    section {
+        padding: 70px 30px;
+    }
+
+    .hero {
+        padding: 140px 25px;
+    }
+
+    .hero h1 {
+        font-size: 2.6rem;
+    }
+
+    nav a {
+        margin-left: 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    .proyecto-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+}
+.mision-bloques {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+    margin-top: 30px;
+}
+
+.mision-bloque h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.4rem;
+    color: #3a3937;
+    margin-bottom: 10px;
+}
+
+.mision-bloque p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #2d2c2a;
+}
+
+.direccion-financiacion {
+    padding: 70px 60px;
+    background: #f9f8f6;
+}
+
+.financiacion-bloques {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+    margin-top: 30px;
+}
+
+.financiacion-bloque h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.4rem;
+    color: #3a3937;
+    margin-bottom: 10px;
+}
+
+.financiacion-bloque p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #2d2c2a;
+}
